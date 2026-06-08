@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head(${pageTitle})}"></head>
+
+<body>
+<nav th:replace="~{fragments :: navbar('about')}"></nav>
+
+<main class="container py-5">
+    <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+            <h1 class="fw-bold" th:text="${pageTitle}">О нас</h1>
+
+            <p class="lead" th:text="${description}">
+                Описание проекта
+            </p>
+
+            <p>
+                В следующих модулях система будет развиваться: появятся заявки,
+                статусы, пользователи, база данных и роли доступа.
+            </p>
+        </div>
+
+        <div class="col-lg-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="h5">Команда проекта</h2>
+                    <p class="mb-0" th:text="${teamName}">Команда Help Desk</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script th:replace="~{fragments :: bootstrapScripts}"></script>
+</body>
+</html>
