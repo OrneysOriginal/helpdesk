@@ -26,6 +26,12 @@
             </a>
 
             <a class="nav-link"
+               th:classappend="${activePage == 'tickets'} ? ' active'"
+               th:href="@{/tickets}">
+                Заявки
+            </a>
+
+            <a class="nav-link"
                th:classappend="${activePage == 'about'} ? ' active'"
                th:href="@{/about}">
                 О нас
