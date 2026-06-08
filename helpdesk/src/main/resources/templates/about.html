@@ -2,7 +2,7 @@
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments :: head(${pageTitle})}"></head>
 
-<body>
+<body class="bg-light">
 <nav th:replace="~{fragments :: navbar('about')}"></nav>
 
 <main class="container py-5">
@@ -31,6 +31,7 @@
     </div>
 </main>
 
+<footer th:replace="~{fragments :: footer}"></footer>
 <script th:replace="~{fragments :: bootstrapScripts}"></script>
 </body>
 </html>

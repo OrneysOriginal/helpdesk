@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Заявка принята | Help Desk')}"></head>
+
+<body class="bg-light">
+<nav th:replace="~{fragments :: navbar('new-ticket')}"></nav>
+
+<main class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <div class="alert alert-success shadow-sm">
+                <h1 class="alert-heading">Спасибо, ваша заявка принята!</h1>
+
+                <p class="mb-2">
+                    Номер вашей заявки:
+                    <strong th:text="${ticket.id}">1</strong>
+                </p>
+
+                <p class="mb-2">
+                    Тема:
+                    <span th:text="${ticket.title}">Не работает принтер</span>
+                </p>
+
+                <p class="mb-0">
+                    Статус:
+                    <span class="badge bg-primary" th:text="${ticket.status}">NEW</span>
+                </p>
+            </div>
+
+            <div class="d-flex gap-2">
+                <a th:href="@{/tickets}" class="btn btn-primary">
+                    Посмотреть все заявки
+                </a>
+
+                <a th:href="@{/tickets/new}" class="btn btn-outline-primary">
+                    Создать ещё одну
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+<script th:replace="~{fragments :: bootstrapScripts}"></script>
+</body>
+</html>
