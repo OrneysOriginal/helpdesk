@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Админ-панель | Help Desk')}"></head>
+
+<body class="bg-light">
+<nav th:replace="~{fragments :: adminNavbar}"></nav>
+
+<main class="container py-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+            <h1 class="mb-1">Список заявок</h1>
+            <p class="text-muted mb-0">Закрытая зона администратора</p>
+        </div>
+
+        <span class="badge text-bg-primary fs-6"
+              th:text="${#lists.size(tickets)} + ' заявок'">
+            0 заявок
+        </span>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+
+            <div th:if="${#lists.isEmpty(tickets)}" class="alert alert-info">
+                Заявок пока нет.
+            </div>
+
+            <div th:if="${!#lists.isEmpty(tickets)}" class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Имя</th>
+                        <th>Тема</th>
+                        <th>Описание</th>
+                        <th>Статус</th>
+                        <th>Дата создания</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr th:each="ticket : ${tickets}">
+                        <td th:text="${ticket.id}">1</td>
+                        <td th:text="${ticket.customerName}">Иван</td>
+                        <td th:text="${ticket.title}">Проблема</td>
+                        <td th:text="${ticket.description}">Описание проблемы</td>
+                        <td>
+                            <span class="badge text-bg-secondary"
+                                  th:text="${ticket.status}">
+                                NEW
+                            </span>
+                        </td>
+                        <td th:text="${ticket.createdAt}">
+                            2026-01-01T12:00
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+<script th:replace="~{fragments :: bootstrapScripts}"></script>
+</body>
+</html>
